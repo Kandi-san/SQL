@@ -1,0 +1,29 @@
+/** Kandi's Clothing Store
+Hats 10 11.99 70
+Tops 15 29.99 75
+Bottoms 8 39.99 80
+Dresses 11 35.99 70
+Sweaters 3 34.99 98
+Shoes 4 40.00 95 **/
+
+-- Create a clothing store database
+CREATE TABLE KandiClothes (id INTEGER PRIMARY KEY, type TEXT, stock INTEGER, price INTEGER, popularity INTEGER);
+
+INSERT INTO KandiClothes VALUES(1, "Hats", 10, 11.99, 70);
+INSERT INTO KandiClothes VALUES(2, "Tops", 15, 29.99, 75);
+INSERT INTO KandiClothes VALUES(3, "Bottoms", 8, 39.99, 80);
+INSERT INTO KandiClothes VALUES(4, "Dresses", 11, 35.99, 70);
+INSERT INTO KandiClothes VALUES(5, "Sweaters", 3, 34.99, 98);
+INSERT INTO KandiClothes VALUES(6, "Shoes", 4, 40.00, 95);
+
+-- display all items by price
+SELECT * FROM KandiClothes ORDER BY price;
+
+-- display items that are low in stock
+SELECT * FROM KandiClothes WHERE stock < 9 ORDER BY stock asc;
+
+-- display total items in stock over $30.00
+SELECT SUM(stock) FROM KandiClothes WHERE price > 30.00;
+
+--display the top 3 items by popularity
+SELECT type, price, popularity FROM KandiClothes ORDER BY popularity desc LIMIT 3
